@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-
-
-
-
+import 'package:second/views/notes_view.dart';
 
 void main(){
-  runApp(loaa());
+  runApp(NotesApp());
 }
 
-
-class loaa extends StatelessWidget {
+class NotesApp extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark
+      ),
+      home: const NotesView(),
    
     );
     
