@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1047827107139",
+    "project_id": "xhattt-app",
+    "storage_bucket": "xhattt-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047827107139:android:fd8f7bb7e40ea08f67b3f6",
+        "android_client_info": {
+          "package_name": "com.example.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJF45LZdtNWo1qeX6MIlGk70L6vR0BOg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
