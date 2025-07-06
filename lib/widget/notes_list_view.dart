@@ -18,14 +18,18 @@ Colors.teal,
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 9,
-      itemBuilder: (context,index){
-
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: NoteItem(color:colors[index] ),
-      );
-    });
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        itemCount: 9,
+        itemBuilder: (context,index){
+      
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: NoteItem(color:colors[index] ),
+        );
+      }),
+    );
   }
 }
