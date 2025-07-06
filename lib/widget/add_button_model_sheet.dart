@@ -14,7 +14,15 @@ class AddButtonModelSheet extends StatelessWidget {
             height: 27,
             
           ),
-          CustomTextField(),
+          CustomTextField(
+            hint: 'title',
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CustomTextField(hint: 
+          'content',
+          maxlines: 5,)
         ],
       ),
     );
