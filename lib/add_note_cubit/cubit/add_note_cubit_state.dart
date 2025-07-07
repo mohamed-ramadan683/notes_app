@@ -7,6 +7,6 @@ final class AddNoteCubitInitial extends AddNoteCubitState {}
 final class AddNoteCubitLoading extends AddNoteCubitState {}
 final class AddNoteCubitSuccess extends AddNoteCubitState {}
 final class AddNoteCubitFailure extends AddNoteCubitState {
-  final String ?errmessage;
-  AddNoteCubitFailure({ this.errmessage});
+  final String errmessage;
+  AddNoteCubitFailure({ required this.errmessage});
 }
