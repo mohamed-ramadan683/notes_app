@@ -11,22 +11,20 @@ class AddButtonModelSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SingleChildScrollView(
-        child: BlocConsumer<AddNoteCubitCubit, AddNoteCubitState>(
-          listener: (context, state) {
-          if (state is AddNoteCubitFailure){
-print('failed');
-          }
-          if(state is AddNoteCubitSuccess){
-Navigator.pop(context);
-          }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNoteCubitLoading ?true :false,
-              child: addformkey());
-          },
-        ),
+      child: BlocConsumer<AddNoteCubitCubit, AddNoteCubitState>(
+        listener: (context, state) {
+        if (state is AddNoteCubitFailure){
+      print('failed');
+        }
+        if(state is AddNoteCubitSuccess){
+      Navigator.pop(context);
+        }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: state is AddNoteCubitLoading ?true :false,
+            child: SingleChildScrollView(child: addformkey()));
+        },
       ),
     );
   }
