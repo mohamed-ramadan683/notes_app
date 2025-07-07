@@ -4,7 +4,7 @@ import 'package:second/views/notes_view.dart';
 import 'package:second/widget/constants.dart';
 
 void main()async{
-  await Hive.initFlutter;
+  await Hive.initFlutter();
    await Hive.openBox(kopenbox);
   runApp(NotesApp());
 }
