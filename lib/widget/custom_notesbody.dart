@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:second/notes_cubit/cubit/notes_cubit.dart';
 import 'package:second/widget/custom_appbar.dart';
 import 'package:second/widget/notes_list_view.dart';
 
-class CustomNotesbody extends StatelessWidget {
+class CustomNotesbody extends StatefulWidget {
   const CustomNotesbody({super.key});
 
+  @override
+  State<CustomNotesbody> createState() => _CustomNotesbodyState();
+}
+
+class _CustomNotesbodyState extends State<CustomNotesbody> {
+  @override
+  void initState() {
+    BlocProvider.of<NotesCubit>(context).fetchnote();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea( // يحمي من الـ status bar والـ notch
