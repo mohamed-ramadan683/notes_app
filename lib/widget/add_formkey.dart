@@ -52,21 +52,26 @@ String? title,subtitle;
           SizedBox(
             height: 32,
           ),
-          CustomButton(
-            ontap: (){
-              if(formkey.currentState!.validate()){
-formkey.currentState!.save();
- var notemodel=NoteModel(title: title!, 
-subtitle: subtitle!, 
-date: DateTime.now().toString(),
- color: Colors.blue.value);
- BlocProvider.of<AddNoteCubitCubit>(context).addnote(notemodel);
-              }else{
-                autovalidateMode=AutovalidateMode.always;
-                setState(() {
-                  
-                });
-              }
+          BlocBuilder<AddNoteCubitCubit, AddNoteCubitState>(
+            builder: (context, state) {
+              return CustomButton(
+                      isloading: state is AddNoteCubitLoading?true:false ,
+                      ontap: (){
+                        if(formkey.currentState!.validate()){
+          formkey.currentState!.save();
+           var notemodel=NoteModel(title: title!, 
+          subtitle: subtitle!, 
+          date: DateTime.now().toString(),
+           color: Colors.blue.value);
+           BlocProvider.of<AddNoteCubitCubit>(context).addnote(notemodel);
+                        }else{
+                          autovalidateMode=AutovalidateMode.always;
+                          setState(() {
+                            
+                          });
+                        }
+                      },
+                    );
             },
           ),
           SizedBox(
