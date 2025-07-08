@@ -8,8 +8,9 @@ import 'package:second/widget/constants.dart';
 
 void main()async{
   await Hive.initFlutter();
-  Bloc.observer=SimpleBlocOserver();
   Hive.registerAdapter(NoteModelAdapter());
+  Bloc.observer=SimpleBlocOserver();
+  
    await Hive.openBox<NoteModel>(kopenbox);
   runApp(NotesApp());
 }

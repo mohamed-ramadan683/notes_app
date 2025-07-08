@@ -5,7 +5,7 @@ import 'package:second/add_note_cubit/cubit/add_note_cubit_cubit.dart';
 import 'package:second/models/note_model.dart';
 import 'package:second/widget/custom_button.dart';
 import 'package:second/widget/custom_text_field.dart';
-
+import 'package:intl/intl.dart';
 class addformkey extends StatefulWidget {
   const addformkey({
     super.key,
@@ -59,9 +59,12 @@ String? title,subtitle;
                       ontap: (){
                         if(formkey.currentState!.validate()){
           formkey.currentState!.save();
+          var currentdate=DateTime.now();  // to format date
+          var formatteddate=DateFormat.yMd().format(currentdate); //to format date
            var notemodel=NoteModel(title: title!, 
+         
           subtitle: subtitle!, 
-          date: DateTime.now().toString(),
+          date: formatteddate,
            color: Colors.blue.value);
            BlocProvider.of<AddNoteCubitCubit>(context).addnote(notemodel);
                         }else{
