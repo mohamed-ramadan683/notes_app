@@ -2,38 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:second/models/note_model.dart';
+import 'package:second/notes_cubit/cubit/notes_cubit.dart';
 import 'package:second/simple_bloc_oserver.dart';
 import 'package:second/views/notes_view.dart';
 import 'package:second/widget/constants.dart';
 
-void main()async{
+void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
-  Bloc.observer=SimpleBlocOserver();
-  
-   await Hive.openBox<NoteModel>(kopenbox);
+  Bloc.observer = SimpleBlocOserver();
+
+  await Hive.openBox<NoteModel>(kopenbox);
   runApp(NotesApp());
 }
 
 class NotesApp extends StatelessWidget {
- 
   @override
   Widget build(BuildContext context) {
-    return// MultiBlocProvider(
+    return // MultiBlocProvider(
     // providers: [
-   //   BlocProvider(create: (context)=>AddNoteCubitCubit()),
-   //  ],
-   //    child: 
-       MaterialApp(
+    //   BlocProvider(create: (context)=>AddNoteCubitCubit()),
+    //  ],
+    //    child:
+    BlocProvider(
+         create: (context) => NotesCubit(),
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: 'Poppins'
-        ),
+        theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
         home: const NotesView(),
-         
-      );
-  
-    
+      ),
+    );
   }
 }

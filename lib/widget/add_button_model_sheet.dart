@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:second/add_note_cubit/cubit/add_note_cubit_cubit.dart';
+import 'package:second/notes_cubit/cubit/notes_cubit.dart';
 import 'package:second/widget/add_formkey.dart';
 
 
@@ -17,6 +18,7 @@ class AddButtonModelSheet extends StatelessWidget {
             print('failed');
           }
           if (state is AddNoteCubitSuccess) {
+            BlocProvider.of<NotesCubit>(context).fetchnote();
             Navigator.pop(context);
           }
         },
